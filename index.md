@@ -41,24 +41,24 @@
     }
 
     oXHR.onreadystatechange = reportStatus;
-    oXHR.open("GET", "library.xml", true);      // true = ASYNCHRONOUS REQUEST (DESIRABLE), false = SYNCHRONOUS REQUEST.
+    oXHR.open("GET", "test.xml", true);      // true = ASYNCHRONOUS REQUEST (DESIRABLE), false = SYNCHRONOUS REQUEST.
     oXHR.send();
 
     function showTheList(xml) {
 
         var divBooks = document.getElementById('books');        // THE PARENT DIV.
-        var Book_List = xml.getElementsByTagName('List');       // THE XML TAG NAME.
+        var Book_List = xml.getElementsByTagName('match');       // THE XML TAG NAME.
 
         for (var i = 0; i < Book_List.length; i++) {
 
             // CREATE CHILD DIVS INSIDE THE PARENT DIV.
             var divLeft = document.createElement('div');
             divLeft.className = 'col1';
-            divLeft.innerHTML = Book_List[i].getElementsByTagName("BookName")[0].childNodes[0].nodeValue;
+            divLeft.innerHTML = Book_List[i].getElementsByTagName("place_name")[0].childNodes[0].nodeValue;
 
             var divRight = document.createElement('div');
             divRight.className = 'col2';
-            divRight.innerHTML = Book_List[i].getElementsByTagName("Category")[0].childNodes[0].nodeValue;
+            divRight.innerHTML = Book_List[i].getElementsByTagName("snippet")[0].childNodes[0].nodeValue;
 
             // ADD THE CHILD TO THE PARENT DIV.
             divBooks.appendChild(divLeft);
