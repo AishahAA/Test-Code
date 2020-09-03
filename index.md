@@ -55,6 +55,11 @@
             var divLeft = document.createElement('div');
             divLeft.className = 'col1';
             divLeft.innerHTML = Book_List[i].getElementsByTagName("place_name")[0].childNodes[0].nodeValue;
+            
+             var divLeft2 = document.createElement('div');
+            divLeft.className = 'col1b';
+            divLeft.innerHTML = Book_List[i].getElementsByTagName("docAuthor")[0].childNodes[0].nodeValue;
+
 
             var divRight = document.createElement('div');
             divRight.className = 'col2';
