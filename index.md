@@ -33,6 +33,57 @@
 </body>
 
 <script>
+  
+    
+function loadXMLDoc(dname)
+{
+    if (window.XMLHttpRequest)
+    {
+        xhttp=new XMLHttpRequest();
+    }
+    else
+    {
+        xhttp=new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xhttp.open("GET",dname,false);
+    xhttp.send();
+    return xhttp.responseXML;
+} 
+function searchXML()
+{
+    xmlDoc=loadXMLDoc("test.xml");
+    x=xmlDoc.getElementsByTagName("place_name");
+    input = document.getElementById("input").value;
+    size = input.length;
+    if (input == null || input == "")
+    {
+        document.getElementById("results").innerHTML= "Please enter a character or name!";
+        return false;
+    }
+    for (i=0;i<x.length;i++)
+    {
+        startString = place_name.substring(0,size);
+        if (startString.toLowerCase() == input.toLowerCase())
+        {
+            place_name=xmlDoc.getElementsByTagName("place_name")[i].childNodes[0].nodeValue;
+            docAuthor=xmlDoc.getElementsByTagName("docAuthor")[i].childNodes[0].nodeValue;
+            docTitle=xmlDoc.getElementsByTagName("docTitle")[i].childNodes[0].nodeValue;
+            docDate=xmlDoc.getElementsByTagName("docDate")[i].childNodes[0].nodeValue;
+            doc_page_number=xmlDoc.getElementsByTagName("doc_page_number")[i].childNodes[0].nodeValue;
+            divText = "<h1>The contact details are:</h1><br /><table border=1><tr><th>Place Name</th><th>Doc Author</th><th>Doc Title</th><th>Doc Date</th><th>Doc Page Number</th></tr>" + "<tr><td>" + place_name + "</td><td>" + docAuthor + "</td><td>" + docTitle + "</td><td>" + docDate + "</td><td>" + doc_page_number + "</td><td>" + "</td></tr>" + "</table>";
+            break;
+        }
+        else
+        {
+            divText = "<h2>The contact does not exist.</h2>";
+        }
+    }
+    document.getElementById("results").innerHTML= divText;
+}
+
+    
+    
+    
     var oXHR = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
 
     function reportStatus() {
@@ -55,7 +106,7 @@
             var divLeft = document.createElement('div');
             divLeft.className = 'col1';
             divLeft.innerHTML = Book_List[i].getElementsByTagName("place_name")[0].childNodes[0].nodeValue;
-            
+
             var divRight = document.createElement('div');
             divRight.className = 'col2';
             divRight.innerHTML = Book_List[i].getElementsByTagName("snippet")[0].childNodes[0].nodeValue;
