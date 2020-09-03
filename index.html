@@ -31,6 +31,17 @@
     <p>Data extracted from an <b>XML</b> file</p>
     <div id="books"></div>
 </body>
+    
+    
+ <body>
+ Place Name: <input type="text" name="place_name" id="input">
+ <br />
+<input type="submit" value="Submit" onClick="searchXML()">
+<br />
+<br />
+<div id="results">
+</div>
+</body>
 
 <script>
   
