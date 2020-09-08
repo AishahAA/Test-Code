@@ -56,13 +56,13 @@ function loadXMLDoc(test.xml)
     {
         xhttp=new ActiveXObject("Microsoft.XMLHTTP");
     }
-    xhttp.open("GET",test.xml,false);
+    xhttp.open("GET",dname,false);
     xhttp.send();
     return xhttp.responseXML;
 } 
 function searchXML()
 {
-    xmlDoc=loadXMLDoc("test.xml");
+    xmlDoc=loadXMLDoc("dname");
     x=xmlDoc.getElementsByTagName("place_name");
     input = document.getElementById("input").value;
     size = input.length;
