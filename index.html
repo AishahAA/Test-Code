@@ -90,6 +90,11 @@ function searchXML()
         }
     }
     document.getElementById("results").innerHTML= divText;
+    const fs = require('fs')  
+fs.writeFile('results.xml', results, (err) => { 
+    if (err) throw err; 
+}) 
+    
 }
 
     
@@ -103,7 +108,7 @@ function searchXML()
     }
 
     oXHR.onreadystatechange = reportStatus;
-    oXHR.open("GET", "test.xml", true);      // true = ASYNCHRONOUS REQUEST (DESIRABLE), false = SYNCHRONOUS REQUEST.
+    oXHR.open("GET", "results.xml", true);      // true = ASYNCHRONOUS REQUEST (DESIRABLE), false = SYNCHRONOUS REQUEST.
     oXHR.send();
 
     function showTheList(xml) {
