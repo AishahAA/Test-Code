@@ -81,8 +81,7 @@ function searchXML()
             docTitle=xmlDoc.getElementsByTagName("docTitle")[i].childNodes[0].nodeValue;
             docDate=xmlDoc.getElementsByTagName("docDate")[i].childNodes[0].nodeValue;
             doc_page_number=xmlDoc.getElementsByTagName("doc_page_number")[i].childNodes[0].nodeValue;
-            snippet=xmlDoc.getElementsByTagName("snippet")[i].childNodes[0].nodeValue;
-            divText = "<h1>The contact details are:</h1><br /><table border=1><tr><th>Place Name</th><th>Doc Author</th><th>Doc Title</th><th>Doc Date</th><th>Doc Page Number</th></tr>" + "<tr><td>" + place_name + "</td><td>" + docAuthor + "</td><td>" + docTitle + "</td><td>" + docDate + "</td><td>" + doc_page_number + "</td><td>" + snippet + "</td><td>" + "</td></tr>" + "</table>";
+            divText = "<h1>The contact details are:</h1><br /><table border=1><tr><th>Place Name</th><th>Doc Author</th><th>Doc Title</th><th>Doc Date</th><th>Doc Page Number</th></tr>" + "<tr><td>" + place_name + "</td><td>" + docAuthor + "</td><td>" + docTitle + "</td><td>" + docDate + "</td><td>" + doc_page_number + "</td><td>" + "</td></tr>" + "</table>";
             break;
         }
         else
